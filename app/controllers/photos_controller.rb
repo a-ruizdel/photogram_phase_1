@@ -4,7 +4,11 @@ class PhotosController < ApplicationController
   end
 
   def show
-    @index_id = params["indexid"]
+    @index_id = params["id"]
+    @source = Photo.find(params["id"]).source
+    @caption = Photo.find(params["id"]).caption
+
+
 
     render ("photos/detail.html.erb")
   end
